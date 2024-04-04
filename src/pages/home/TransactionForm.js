@@ -15,6 +15,7 @@ const TransactionForm = ({ uid }) => {
         })
     }
 
+    //reset the form fields
     useEffect(() => {
         if(response.success){
             setTransactionName('')
@@ -24,7 +25,7 @@ const TransactionForm = ({ uid }) => {
 
   return (
     <>
-        <h3>Add a Transaction</h3>
+        <h3>Add Transaction</h3>
         <form onSubmit={handleSubmit} className="transaction-form">
             <label>
                 <span>Transaction name:</span>

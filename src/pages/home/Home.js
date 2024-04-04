@@ -14,12 +14,12 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.sidebar}>
+        <TransactionForm uid={user.uid}/>
+      </div>
       <div className={styles.content}>
         {error && <p>{error}</p>}
         {documents && <TransactionList transactions = {documents} />}
-      </div>
-      <div className={styles.sidebar}>
-        <TransactionForm uid={user.uid}/>
       </div>
     </div>
   )

@@ -1,10 +1,11 @@
 .container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr;
     max-width: 960px;
     margin: 60px auto;
   }
   .content {
+    margin-left: 60px;
     padding-right: 30px;
   }
   .sidebar {
@@ -15,7 +16,7 @@
     background: #1f9751;
     border-radius: 10px;
   }
-  .sidebar input, .sidebar select {
+  .sidebar input {
     display: block;
     width: 100%;
     padding: 10px;
@@ -26,22 +27,34 @@
     color: #555;
     font-size: 1em;
   }
+
+  .sidebar input:focus{
+    outline: none;
+  }
+
   .sidebar label {
     margin: 0 auto 20px;
     display: block;
     color: #fff;
   }
   .sidebar button {
+    font-family: inherit;
     color: #fff;
     border: 2px solid #fff;
     padding: 6px 12px;
     background-color: transparent;
-    font-size: 1em;
+    font-size: 0.9em;
     border-radius: 4px;
     cursor: pointer;
     display: block;
     width: 100%;
+    transition: transform 0.5s ease;
   }
+
+  .sidebar button:hover {
+    transform: scale(0.99);
+  }
+
   .sidebar h3 {
     color: #1f9751;
     margin-bottom: 20px;
@@ -89,4 +102,39 @@
   line-height: 0;
   font-size: 0.9em;
   cursor: pointer;
+}
+
+/* Media query for screens less than 480px wide (mobile portrait) */
+@media (max-width: 480px) {
+  .container {
+    display: flex; /* Change to flex layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .sidebar {
+    padding-left: 0; /* Remove left padding */
+    margin-top: 20px; /* Add some space between content and sidebar */
+  }
+
+  .content {
+    margin-left: 0px;
+    padding: 0px;
+    width: 70%;
+  }
+
+  .transactions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .transactions .name {
+    font-size: 1.2em;
+  }
+  .transactions .amount {
+    margin: 0;
+    font-size: 1.2em;
+  }
+
 }
