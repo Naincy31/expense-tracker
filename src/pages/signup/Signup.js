@@ -8,16 +8,22 @@ const Signup = () => {
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { signup, error, isPending} = useSignup()
+    const { signup, error, isPending} = useSignup();
+    const [passwordError, setPasswordError] = useState(null)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        signup(email, password, displayName);
+        const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/
+        if (passwordRegex.test(password)){
+            signup(email, password, displayName);
+        } else {
+            setPasswordError("Password must be 8-16 characters with at least one digit, lowercase letter, uppercase letter, and special character.")
+        }
     }
 
   return (
     <form onSubmit = {handleSubmit} className={styles['signup-form']}>
-        <h2>Signup</h2>
+        <h2>SIGN UP</h2>
         <label>
             <span>Your Name:</span>
             <input
@@ -46,8 +52,8 @@ const Signup = () => {
             />
         </label>
         {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Signup</button>}
-        {error && <p>{error}</p>}
-        
+        {error && <p className='error'>{error}</p>}
+        {passwordError && <p className='error'>{passwordError}</p>}
     </form>
   )
 }

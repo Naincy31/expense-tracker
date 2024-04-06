@@ -11,14 +11,13 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email, password);
         login(email, password)
 
     }
 
   return (
     <form onSubmit= {handleSubmit} className={styles['login-form']}>
-        <h2>login</h2>
+        <h2>LOGIN</h2>
         <label>
             <span>Email:</span>
             <input 
@@ -36,7 +35,7 @@ const Login = () => {
             />
         </label>
         {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Login</button>}
-        {error && <p>{error}</p>}
+        {error && <p className='error'>Please provide the correct email and password</p>}
 
     </form>
   )

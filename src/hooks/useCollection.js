@@ -26,7 +26,6 @@ export const useCollection = (collectionName, queryDoc, orderDoc) => {
                 setDocuments(results)
                 setError(null)
             }, (error) => {
-                console.log(error);
                 setError('Could not fetch the data')
             })
 

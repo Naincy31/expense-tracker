@@ -16,8 +16,7 @@ const useLogout = () => {
         //sign the user out
         try {
             await signOut(projectAuth)
-            console.log('Signout Successful');
-
+            
             //dispatch logout action
             dispatch({type: 'LOGOUT' })
 
@@ -29,7 +28,6 @@ const useLogout = () => {
             
         } catch (err) {
             if(!isCancelled){
-                console.log(err.message);
                 setError(err.message);
                 setIsPending(false);
             }

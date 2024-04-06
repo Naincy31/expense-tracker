@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // pages & components
 import Home from "./pages/home/Home";
@@ -14,18 +14,12 @@ function App() {
     <div className="App">
       {authIsReady && (
         <BrowserRouter>
-          <Navbar/>
-          <Switch>
-            <Route exact path='/'>
-              {user ? <Home/> : <Redirect to='/login' />}
-            </Route>
-            <Route path='/login'>
-              {!user ? <Login/> : <Redirect to='/' /> }
-            </Route>
-            <Route path='/signup'>
-              {!user ? <Signup/> : <Redirect to='/' /> }
-            </Route>
-          </Switch>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+          </Routes>
         </BrowserRouter>
       )}
     </div>

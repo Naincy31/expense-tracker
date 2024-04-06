@@ -24,8 +24,6 @@ const useSignup = () => {
         //Add display name to current user
         await updateProfile(projectAuth.currentUser, { displayName })
 
-        console.log(projectAuth.currentUser);
-
         //dispatch login action
         dispatch({ type: 'LOGIN', payload: projectAuth.currentUser})
 
@@ -36,7 +34,6 @@ const useSignup = () => {
 
     } catch (err) {
       if(!isCancelled){
-        console.log(err.message);
         setError(err.message);
         setIsPending(false);
       }

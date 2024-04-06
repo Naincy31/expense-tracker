@@ -30,3 +30,14 @@ ul {
   background: #1f9751;
   color: #fff;
 }
+
+.error {
+  color: red;
+  background: pink;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 14px;
+}

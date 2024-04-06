@@ -23,18 +23,34 @@
 }
 
 .navbar a{
+    font-size: 1.2em;
     color: #333;
+    opacity: 0.5;
     text-decoration: none;
 }
 
-@media(max-width: 300px){
+.active { /* Styles applied to the active link */
+    color: #f00; /* Change this to your desired color */
+    font-weight: bold;
+    opacity: 1;
+  }
+
+
+@media(max-width: 480px){
     .title{
         margin-right: auto;
         font-weight: bold;
         letter-spacing: 0.5px;
         font-size: 0.9em;
     }
+
     .navbar .name{
         font-size: 0.8em;
+    }
+
+    .navbar a{
+        font-size: 0.9em;
+        color: #333;
+        text-decoration: none;
     }
 }

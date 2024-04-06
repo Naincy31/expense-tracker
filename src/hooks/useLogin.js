@@ -16,7 +16,6 @@ export const useLogin = () => {
         //sign the user in
         try {
             await signInWithEmailAndPassword(projectAuth, email, password)
-            console.log(projectAuth.currentUser);
             //dispatch login action
             dispatch({ type: 'LOGIN', payload: projectAuth.currentUser})
 
@@ -28,7 +27,6 @@ export const useLogin = () => {
             
         } catch (err) {
             if(!isCancelled){
-                console.log(err.message);
                 setError(err.message);
                 setIsPending(false);
             }
