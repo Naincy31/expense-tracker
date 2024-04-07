@@ -26,5 +26,9 @@
     .login-form{
         font-size: 0.9em;
     }
+
+    .login-form input{
+        width: 95%;
+    }
   
   }
