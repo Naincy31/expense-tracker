@@ -12,8 +12,6 @@ const Login = () => {
     const {login, error, isPending} = useLogin();
     const [isActive, setIsActive] = useState(false);
 
-    console.log(isActive);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         login(email, password)
@@ -22,7 +20,6 @@ const Login = () => {
 
     const toggleActive = () => {
         setIsActive(!isActive); 
-        console.log(isActive);
     };
 
   return (

@@ -27,7 +27,6 @@ const Signup = () => {
 
     const toggleActive = () => {
         setIsActive(!isActive); 
-        console.log(isActive);
     };
 
   return (
