@@ -41,3 +41,7 @@ ul {
   width: 100%;
   font-size: 14px;
 }
+
+input{
+  outline: 0;
+}

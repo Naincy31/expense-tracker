@@ -7,6 +7,7 @@
 .signup-form label{
     display: block;
     margin: 25px auto;
+    position: relative;
 }
 
 .signup-form span{
@@ -21,6 +22,28 @@
     width: 100%;
 }
 
+.signup-form label > button{
+    position: absolute;
+    top: 45px;
+    right: -5px;
+    padding: 4px;
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.signup-form label > button  .fa-eye-slash{
+    display: none;
+}
+
+.signup-form label > button.active  .fa-eye{
+    display: none;
+}
+
+.signup-form label > button.active  .fa-eye-slash{
+    display: inline;
+}
+
 /* Media query for screens less than 480px wide (mobile portrait) */
 @media (max-width: 480px) {
     .signup-form{
@@ -28,6 +51,10 @@
     }
 
     .signup-form input{
+        width: 95%;
+    }
+
+    .signup-form p{
         width: 95%;
     }
   

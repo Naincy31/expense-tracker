@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import useSignup from '../../hooks/useSignup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 
 //styles
 import styles from './Signup.module.css';
@@ -10,6 +13,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const { signup, error, isPending} = useSignup();
     const [passwordError, setPasswordError] = useState(null)
+    const [isActive, setIsActive] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +24,11 @@ const Signup = () => {
             setPasswordError("Password must be 8-16 characters with at least one digit, lowercase letter, uppercase letter, and special character.")
         }
     }
+
+    const toggleActive = () => {
+        setIsActive(!isActive); 
+        console.log(isActive);
+    };
 
   return (
     <form onSubmit = {handleSubmit} className={styles['signup-form']}>
@@ -45,11 +54,23 @@ const Signup = () => {
         <label>
             <span>Password:</span>
             <input
-                type='password'
+                type={isActive ? 'text': 'password'}
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 required
             />
+            <button 
+                type='button' 
+                className={isActive ? styles.active: ''}
+                onClick={toggleActive}
+            >
+                <span className={styles['fa-eye']}>
+                    <FontAwesomeIcon icon={faEye} />
+                </span>
+                <span className={styles['fa-eye-slash']}>
+                    <FontAwesomeIcon icon={faEyeSlash} />
+                </span>
+            </button>
         </label>
         {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Signup</button>}
         {error && <p className='error'>{error}</p>}

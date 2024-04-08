@@ -7,6 +7,7 @@
 .login-form label{
     display: block;
     margin: 30px auto;
+    position: relative;
 }
 
 .login-form span{
@@ -21,6 +22,28 @@
     width: 100%;
 }
 
+.login-form label > button{
+    position: absolute;
+    top: 45px;
+    right: -5px;
+    padding: 4px;
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.login-form label > button .fa-eye-slash{
+    display: none;
+}
+
+.login-form label > button.active .fa-eye{
+    display: none;
+}
+
+.login-form label > button.active .fa-eye-slash{
+    display: inline;
+}
+
 /* Media query for screens less than 480px wide (mobile portrait) */
 @media (max-width: 480px) {
     .login-form{
@@ -28,6 +51,10 @@
     }
 
     .login-form input{
+        width: 95%;
+    }
+
+    .login-form p{
         width: 95%;
     }
   
