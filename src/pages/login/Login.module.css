@@ -32,6 +32,25 @@
     cursor: pointer; 
 }
 
+.login-form .form-footer{
+    position: relative;
+    width: 100%;
+}
+
+.login-form .form-footer .forgot{
+    position: absolute;
+    top: 10px;
+    right: -15px;
+
+}
+
+.login-form .form-footer .forgot a{
+    text-decoration: none;
+    color: #777;
+    font-size: 16px;
+}
+
+
 .login-form label > button .fa-eye-slash{
     display: none;
 }
@@ -66,6 +85,17 @@
         background-color: transparent; 
         border: none; 
         cursor: pointer; 
+    }
+
+    .login-form .form-footer{
+        position: relative;
+        width: 95%;
+    }
+    
+    .login-form .form-footer .forgot{
+        position: absolute;
+        top: 10px;
+        right: -15px;
     }
   
   }

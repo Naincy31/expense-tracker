@@ -5,6 +5,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 //styles
 import styles from './Login.module.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -53,9 +54,13 @@ const Login = () => {
                 </span>
             </button>
         </label>
-        {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Login</button>}
+        <div className={styles['form-footer']}>
+            {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Login</button>}
+            <div className={styles.forgot}>
+                <Link to='/forgot-password'>Forgot Password?</Link>
+            </div>
+        </div>
         {error && <p className='error'>Please provide the correct email and password</p>}
-
     </form>
   )
 }
