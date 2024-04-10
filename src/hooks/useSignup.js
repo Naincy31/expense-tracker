@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"; 
-import { projectAuth } from "../firebase/config";
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { projectAuth, provider } from "../firebase/config";
+import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from 'firebase/auth';
 import { useAuthContext }  from "./useAuthContext";
 
 const useSignup = () => {
@@ -40,11 +40,41 @@ const useSignup = () => {
     }
   }
 
+  const googleSignIn = async () => {
+    setError(null)
+    setIsPending(true)
+
+    try{
+
+      const res = await signInWithPopup(projectAuth, provider)
+
+      if(!res){
+        throw new Error('Could not complete signup');
+      }
+
+      //dispatch login action
+      dispatch({ type: 'LOGIN', payload: projectAuth.currentUser})
+
+      if(!isCancelled){
+        setIsPending(false);
+        setError(null);
+      }
+
+    } catch (err) {
+      if(!isCancelled){
+        setError(err.message);
+        setIsPending(false);
+      }
+    }
+
+
+  }
+
   useEffect(() => {
     return () => setIsCancelled(true);
   }, [])
 
-  return {error, isPending, signup}
+  return {error, isPending, signup, googleSignIn}
 }
 
 export default useSignup;

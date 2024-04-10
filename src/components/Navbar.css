@@ -2,7 +2,7 @@
     width: 100%;
     background: #effaf0;
     box-sizing: border-box;
-    padding: 20px 20px;
+    padding: 10px 20px;
 }
 
 .navbar ul{
@@ -38,9 +38,6 @@
 
 @media(max-width: 480px){
     .title{
-        margin-right: auto;
-        font-weight: bold;
-        letter-spacing: 0.5px;
         font-size: 0.9em;
     }
 

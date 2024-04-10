@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import useLogout from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 //styles
@@ -13,12 +12,7 @@ const Navbar = () => {
         <ul>
             <li className='title'>Expense Tracker</li>
 
-            {!user ? (
-              <>
-                <li><NavLink to='/login'>LOGIN</NavLink></li>
-                <li><NavLink to='/signup'>SIGN UP</NavLink></li>
-              </>
-            ) : 
+            {user &&
             ( 
               <>
                 <li className='name'>Hello, {user.displayName}</li>

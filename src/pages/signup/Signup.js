@@ -2,6 +2,8 @@ import { useState } from 'react';
 import useSignup from '../../hooks/useSignup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { GoogleButton } from 'react-google-button'
+import { Link } from 'react-router-dom';
 
 
 //styles
@@ -11,7 +13,7 @@ const Signup = () => {
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { signup, error, isPending} = useSignup();
+    const { signup, error, isPending, googleSignIn} = useSignup();
     const [passwordError, setPasswordError] = useState(null)
     const [isActive, setIsActive] = useState(false);
 
@@ -23,6 +25,10 @@ const Signup = () => {
         } else {
             setPasswordError("Password must be 8-16 characters with at least one digit, lowercase letter, uppercase letter, and special character.")
         }
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
     }
 
     const toggleActive = () => {
@@ -72,6 +78,13 @@ const Signup = () => {
             </button>
         </label>
         {isPending ? <button className='btn' disabled>loading</button> : <button className='btn'>Signup</button>}
+        <p>Already have an account? <Link to='/login'>Login</Link></p>
+        
+        <p>Or</p>
+        <div className={styles['google-button']}>
+            <GoogleButton onClick = {handleGoogleSignIn}  style={{ width: '100%' }}/>
+        </div>
+
         {error && <p className='error'>{error}</p>}
         {passwordError && <p className='error'>{passwordError}</p>}
     </form>

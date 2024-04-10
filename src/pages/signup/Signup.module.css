@@ -2,12 +2,24 @@
     max-width: 360px;
     margin: 30px auto;
     padding: 20px;
+    text-align: center;
+}
+
+.signup-form .google-button{
+    margin: 10px 0 0 0;
+}
+
+.signup-form p{
+    width: 100%;
+    font-size: 15px;
+    color: #777;
 }
 
 .signup-form label{
     display: block;
-    margin: 25px auto;
+    margin: 10px auto;
     position: relative;
+    text-align: left;
 }
 
 .signup-form span{
@@ -25,7 +37,7 @@
 .signup-form label > button{
     position: absolute;
     top: 45px;
-    right: -5px;
+    right: 5px;
     padding: 4px;
     background-color: transparent; 
     border: none; 
@@ -50,22 +62,22 @@
         font-size: 0.9em;
     }
 
-    .signup-form input{
-        width: 95%;
-    }
-
-    .signup-form p{
+    .signup-form input, p, .google-button{
         width: 95%;
     }
 
     .signup-form label > button{
         position: absolute;
         top: 40px;
-        right: 10px;
+        right: 18px;
         padding: 4px;
         background-color: transparent; 
         border: none; 
         cursor: pointer; 
+    }
+
+    .signup-form .google-button{
+        padding-left: 0px;
     }
   
   }

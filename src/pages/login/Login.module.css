@@ -2,12 +2,18 @@
     max-width: 360px;
     margin: 30px auto;
     padding: 20px;
+    text-align: center;
+}
+
+.login-form .google-button{
+    margin: 10px 0 0 0;
 }
 
 .login-form label{
     display: block;
-    margin: 30px auto;
+    margin: 20px auto;
     position: relative;
+    text-align: left;
 }
 
 .login-form span{
@@ -22,34 +28,33 @@
     width: 100%;
 }
 
+.login-form p{
+    width: 100%;
+    font-size: 15px;
+    color: #777;
+}
+
 .login-form label > button{
     position: absolute;
     top: 45px;
-    right: -5px;
+    right: 5px;
     padding: 4px;
     background-color: transparent; 
     border: none; 
     cursor: pointer; 
 }
 
-.login-form .form-footer{
-    position: relative;
-    width: 100%;
+.login-form label:last-of-type{
+    margin-bottom: 13px;
 }
 
-.login-form .form-footer .forgot{
-    position: absolute;
-    top: 10px;
-    right: -15px;
-
-}
-
-.login-form .form-footer .forgot a{
+a{
+    display: inline-block;
     text-decoration: none;
-    color: #777;
+    margin-bottom: 15px;
+    color: #1f9751;
     font-size: 16px;
 }
-
 
 .login-form label > button .fa-eye-slash{
     display: none;
@@ -69,18 +74,14 @@
         font-size: 0.9em;
     }
 
-    .login-form input{
-        width: 95%;
-    }
-
-    .login-form p{
+    .login-form input, p, .google-button{
         width: 95%;
     }
 
     .login-form label > button{
         position: absolute;
         top: 40px;
-        right: 10px;
+        right: 18px;
         padding: 4px;
         background-color: transparent; 
         border: none; 
@@ -96,6 +97,10 @@
         position: absolute;
         top: 10px;
         right: -15px;
+    }
+
+    .login-form .google-button{
+        padding-left: 0px;
     }
   
   }
