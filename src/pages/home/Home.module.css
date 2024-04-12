@@ -25,7 +25,7 @@
     border: 0;
     border-radius: 4px;
     color: #555;
-    font-size: 1em;
+    font-size: 14px;
   }
 
   .sidebar input:focus{
@@ -69,38 +69,36 @@
 
   /* transactions */
 .transactions li {
-  margin: 30px auto;
+  margin: 15px auto;
   border: 1px solid #f2f2f2;
   box-shadow: 3px 3px 5px rgba(50,50,50,0.1);
-  padding: 20px;
+  padding: 10px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
   border-left: 4px solid #1f9751;
 }
 .transactions .name {
   color: #777;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 .transactions .amount {
-  margin-left: auto;
-  margin-right: 40px;
   color: #777;
-  font-weight: bold;
-  font-size: 1.6em;
+  font-size: 1.2em;
+  margin-right: 10px;
 }
 .transactions button {
   position: absolute;
   top: 0;
   right:0;
-  background: #ddd;
-  color: #777;
+  background: #ff5c33;
+  color: #fff;
   border: none;
-  padding: 12px 8px;
+  padding: 7px 6px;
   text-align: center;
   line-height: 0;
-  font-size: 0.9em;
+  font-size: 0.6em;
   cursor: pointer;
 }
 
@@ -129,18 +127,12 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 70%;
   }
 
-  .transactions li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .transactions .name {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .transactions .amount {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
 }

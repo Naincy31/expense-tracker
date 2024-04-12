@@ -15,7 +15,7 @@ const Navbar = () => {
             {user &&
             ( 
               <>
-                <li className='name'>Hello, {user.displayName}</li>
+                <li className='name'>Hi, {user.displayName.split(' ')[0]}</li>
                 <li><button className='btn' onClick={ logout }>Logout</button></li>
               </>
             )
