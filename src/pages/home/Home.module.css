@@ -67,8 +67,12 @@
     margin: 10px;
   }
 
-  /* transactions */
-.transactions li {
+  .transactions{
+    margin-top: 40px;
+  }
+
+  /* transactions and categories */
+.categories a, .transactions li{
   margin: 15px auto;
   border: 1px solid #f2f2f2;
   box-shadow: 3px 3px 5px rgba(50,50,50,0.1);
@@ -78,12 +82,19 @@
   position: relative;
   overflow: hidden;
   border-left: 4px solid #1f9751;
+  cursor: pointer;
 }
-.transactions .name {
+
+.transactions li{
+  margin: 0 50px 20px 50px;
+  cursor: auto;
+}
+
+.categories .name,  .transactions .name{
   color: #777;
   font-size: 1.2em;
 }
-.transactions .amount {
+.categories .amount, .transactions .amount {
   color: #777;
   font-size: 1.2em;
   margin-right: 10px;
@@ -109,7 +120,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Media query for screens less than 480px wide (mobile portrait) */
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .container {
     display: flex; /* Change to flex layout */
     flex-direction: column; /* Stack items vertically */
@@ -127,12 +138,13 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 70%;
   }
 
-  .transactions .name {
+  .categories .name {
     font-size: 1em;
   }
-  .transactions .amount {
-    margin: 0;
+  .categories .amount, .transactions .amount {
+    text-align: right;
     font-size: 1em;
   }
+  
 
 }

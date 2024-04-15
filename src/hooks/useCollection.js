@@ -2,21 +2,23 @@ import { useState, useEffect, useRef } from "react"
 import { db } from "../firebase/config"
 import { collection, onSnapshot, where, query, orderBy } from "firebase/firestore"
 
-export const useCollection = (collectionName, queryDoc, orderDoc) => {
+export const useCollection = (collectionName, queryDoc1, queryDoc2, orderDoc) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
 
     //If we don't use a ref -> infinite loop in useEffect
     //queryDoc is an array and is diff on every function call and is being passed as a reference
-    const _query = useRef(queryDoc).current
+    const _query1 = useRef(queryDoc1).current
+    const _query2 = useRef(queryDoc2).current
     const _order = useRef(orderDoc).current
 
     useEffect(() => {
-        let ref = query(collection(db, collectionName), where(..._query), orderBy(..._order))
+        let ref = _query2 ? query(collection(db, collectionName), where(..._query1), where(..._query2), orderBy(..._order)) : query(collection(db, collectionName), where(..._query1), orderBy(..._order))
 
-        const getDocuments = async () => {
+        const getDocuments = () => {
+            setError(null)
 
-            const unsubscribe = await onSnapshot(ref, (snapshot) => {
+            const unsubscribe = onSnapshot(ref, (snapshot) => {
                 let results = []
                 snapshot.forEach(( doc ) => {
                     results.push({ ...doc.data(), id: doc.id })
@@ -26,7 +28,7 @@ export const useCollection = (collectionName, queryDoc, orderDoc) => {
                 setDocuments(results)
                 setError(null)
             }, (error) => {
-                setError('Could not fetch the data')
+                setError(error.message)
             })
 
             //unsubscribe on unmount
@@ -35,7 +37,7 @@ export const useCollection = (collectionName, queryDoc, orderDoc) => {
 
         getDocuments();
 
-    }, [collectionName, _query, _order])
+    }, [collectionName, _query1, _query2, _order])
 
     return { documents, error }
 }

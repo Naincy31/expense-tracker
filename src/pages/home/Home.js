@@ -1,16 +1,16 @@
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useCollection } from '../../hooks/useCollection';
+import CategoryList from './CategoryList';
 
 //styles
 import styles from './Home.module.css';
 
 //components
 import TransactionForm from './TransactionForm';
-import TransactionList from './TransactionList';
 
 const Home = () => {
   const { user } = useAuthContext()
-  const { documents, error} = useCollection('transactions', ["uid", "==", user.uid] , ["createdAt", "desc"])
+  const { documents, error} = useCollection('transactions', ["uid", "==", user.uid] , null, ["createdAt", "desc"])
 
   return (
     <div className={styles.container}>
@@ -19,7 +19,7 @@ const Home = () => {
       </div>
       <div className={styles.content}>
         {error && <p>{error}</p>}
-        {documents && <TransactionList transactions = {documents} />}
+        {documents && <CategoryList transactions = {documents} />}
       </div>
     </div>
   )

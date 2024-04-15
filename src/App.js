@@ -7,6 +7,7 @@ import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar";
 import { useAuthContext } from "./hooks/useAuthContext";
 import ForgotPassword from "./pages/login/ForgotPassword";
+import TransactionList from "./pages/home/TransactionList";
 
 function App() {
   const { authIsReady, user } = useAuthContext();
@@ -20,7 +21,8 @@ function App() {
             <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
-            <Route path="/forgot-password" element={<ForgotPassword/>} />
+            <Route path="/forgot-password" element={!user ? <ForgotPassword/>: <Navigate to="/" />} />
+            <Route path="/transactions/:category" element={user ? <TransactionList/>: <Navigate to="/login" />} />
           </Routes>
         </BrowserRouter>
       )}

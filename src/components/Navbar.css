@@ -3,31 +3,43 @@
     background: #effaf0;
     box-sizing: border-box;
     padding: 10px 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .navbar ul{
-    display: flex;
-    margin: 0;
-    align-items: center;
+    list-style: none; 
+    display: flex; 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    justify-content: space-between;  
+    align-items: center; 
 }
 
 .title{
     margin-right: auto;
+}
+
+.title a{
+    margin: 0;
     font-weight: bold;
     letter-spacing: 0.5px;
     font-size: 1.2em;
+    color: black;
 }
 
-.navbar button, .navbar a{
+.navbar button{
     margin-left: 16px;
 }
 
-.navbar a{
+/* .navbar a{
     font-size: 1.2em;
     color: #333;
     opacity: 0.5;
     text-decoration: none;
-}
+} */
 
 .active { /* Styles applied to the active link */
     color: #f00; /* Change this to your desired color */
@@ -37,7 +49,7 @@
 
 
 @media(max-width: 480px){
-    .title{
+    .title a{
         font-size: 0.9em;
     }
 
@@ -45,9 +57,9 @@
         font-size: 0.8em;
     }
 
-    .navbar a{
+    /* .navbar a{
         font-size: 0.9em;
         color: #333;
         text-decoration: none;
-    }
+    } */
 }

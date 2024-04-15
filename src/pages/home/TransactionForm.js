@@ -40,10 +40,10 @@ const TransactionForm = ({ uid }) => {
         }),
         option: (baseStyles, state) => ({
             ...baseStyles,
-            backgroundColor: state.isFocused  ? '#1f9751' : 'transparent', // Change background color on focus
+            backgroundColor: state.isFocused  ? '#1f9751' : 'transparent', 
             '&:active': { backgroundColor:  '#1f9751' },
-            color: state.isFocused ? '#fff' : '#333', // Change text color on focus
-            padding: 10, // Adjust padding for options
+            color: state.isFocused ? '#fff' : '#333', 
+            padding: 10,
             margin: -4,
             cursor: 'pointer',
             fontSize: 14,
@@ -68,7 +68,8 @@ const TransactionForm = ({ uid }) => {
         addDocument({
             uid,
             transactionName, 
-            amount
+            amount,
+            category
         })
     }
 
@@ -104,9 +105,8 @@ const TransactionForm = ({ uid }) => {
             <label>
                 <span>Category:</span>
                 <Select
-                    onChange={(option) => setCategory(option)}
+                    onChange={(option) => setCategory(option.label)}
                     options={categories}
-                    placeholder='Select a category...'
                     styles={customStyles}
                     backspaceRemovesValue = {true}
                 />
